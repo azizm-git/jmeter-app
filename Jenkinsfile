@@ -17,7 +17,7 @@ pipeline {
 
         stage('Test JMeter') {
             steps {
-                sh 'jmeter -n -t plan-jenkins.jmx -l results.jtl'
+                sh '/opt/jmeter/bin/jmeter -n -t plan-jenkins.jmx -l results.jtl'
             }
         }
     }
