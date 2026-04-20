@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: true
+  remote_user: aziz
   tasks:
     - name: Supprimer le conteneur existant
       docker_container:
