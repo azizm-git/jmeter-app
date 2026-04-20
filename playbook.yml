@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Supprimer le conteneur existant
+      docker_container:
+        name: jmeter-app
+        state: absent
+        force_kill: true
+
+    - name: Lancer le nouveau conteneur
+      docker_container:
+        name: jmeter-app
+        image: "{{ image }}"
+        state: started
+        ports:
+          - "8081:80"
+        restart_policy: always
